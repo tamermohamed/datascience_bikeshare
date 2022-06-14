@@ -12,8 +12,10 @@ CITY_DATA = { 'chicago': 'chicago.csv',
               'washington': 'washington.csv' }
 
 def display_raw_data(df):
+
+    """ Display row data for the user 5 rows each time"""
     
-    print("To show raw data 5 rows per time enter yes otherwise enter no")
+    print("To show raw data 5 rows each time, enter yes to display row data,enter no to continue")
 
     index = 0
 
