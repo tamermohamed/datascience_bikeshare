@@ -11,6 +11,35 @@ CITY_DATA = { 'chicago': 'chicago.csv',
               'new york city': 'new_york_city.csv',
               'washington': 'washington.csv' }
 
+def display_raw_data(df):
+    
+    print("To show raw data 5 rows per time enter yes otherwise enter no")
+
+    index = 0
+
+    while True:
+
+        view_data = input()
+
+        if view_data.lower() == 'yes':
+
+            raw_data = df[index:index +5]
+            index += 5
+            
+            print(raw_data)
+
+            if raw_data.empty:
+                print('-'*5 + 'No More Data To Show' + '-'*5)
+                break
+            else:
+                print('-'*5 + 'enter yes to show next 5 rows or no to cancel' + '-'*5)
+        
+        elif view_data.lower() == 'no':
+            break
+        else:
+            print('Wrong Input')
+
+    
 def get_filters():
     """
     Asks user to specify a city, month, and day to analyze.
@@ -115,6 +144,8 @@ def load_data(city, month, day):
 
     if day != -1:
         df = df[df['day'] == day]
+
+    display_raw_data(df)
 
     return df
 
